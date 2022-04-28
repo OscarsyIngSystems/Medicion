@@ -10,5 +10,9 @@
 
 .navItemCustom{
   color: #fff !important;
-  font-size: 125% !important;
+
+}
+.btnMenuCustom{
+  color: #fff !important;
+background-color: #fff !important;
 }

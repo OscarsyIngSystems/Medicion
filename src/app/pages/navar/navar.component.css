@@ -1,0 +1,14 @@
+.iconNavbar{
+  width: 3%;
+  height: auto
+}
+
+.navbarCustom{
+  background-color: #231815 !important;
+}
+
+
+.navItemCustom{
+  color: #fff !important;
+  font-size: 125% !important;
+}

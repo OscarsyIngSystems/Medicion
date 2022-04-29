@@ -18,8 +18,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { OnlyNumbersDirective } from './directives/only-numbers.directive';
+import { HistoryComponent } from './pages/history/history.component';
+import { GraphComponent } from './pages/graph/graph.component';
 @NgModule({
-  declarations: [AppComponent, MeasurementFormComponent, NavarComponent, OnlyNumbersDirective],
+  declarations: [AppComponent, MeasurementFormComponent, NavarComponent, OnlyNumbersDirective, HistoryComponent, GraphComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

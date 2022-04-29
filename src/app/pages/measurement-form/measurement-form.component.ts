@@ -8,6 +8,14 @@ import { DataDbService } from 'src/app/services/data-db.service';
   styleUrls: ['./measurement-form.component.css'],
 })
 export class MeasurementFormComponent implements OnInit {
+  hoy = new Date();
+  hora =
+    this.hoy.getHours() +
+    ':' +
+    this.hoy.getMinutes() +
+    ':' +
+    this.hoy.getSeconds();
+
   createFormGrup() {
     return new FormGroup({
       dateNew: new FormControl(''),
@@ -19,7 +27,10 @@ export class MeasurementFormComponent implements OnInit {
     this.measuresForm = this.createFormGrup();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.hora, 'hora');
+    console.log(this.hoy, 'hoy');
+  }
 
   onResetForm() {
     this.measuresForm.reset();

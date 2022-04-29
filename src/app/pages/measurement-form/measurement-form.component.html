@@ -37,13 +37,37 @@
           <div class="col-12 col-md-6 pt-3 d-flex justify-content-center">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Sistólica</mat-label>
-              <input matInput placeholder="ingresa medida Sistólica" />
+              <input
+                onlyNumbers
+                formControlName="izqSistolica"
+                matInput
+                placeholder="ingresa medida Sistólica"
+              />
+              <mat-error *ngIf="measuresForm.get('izqSistolica')?.invalid"
+                >Campo obligatorio</mat-error
+              >
+              <mat-error
+                *ngIf="measuresForm.get('izqSistolica')?.hasError('max')"
+                >ingresar solo 3 cifras</mat-error
+              >
             </mat-form-field>
           </div>
           <div class="col-12 col-md-6 pt-3 d-flex justify-content-center">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Diastólica</mat-label>
-              <input matInput placeholder="ingresa medida Diastólica" />
+              <input
+                onlyNumbers
+                formControlName="izqDiastólica"
+                matInput
+                placeholder="ingresa medida Diastólica"
+              />
+              <mat-error *ngIf="measuresForm.get('izqDiastólica')?.invalid"
+                >Campo obligatorio</mat-error
+              >
+              <mat-error
+                *ngIf="measuresForm.get('izqDiastólica')?.hasError('max')"
+                >ingresar solo 3 cifras</mat-error
+              >
             </mat-form-field>
           </div>
         </div>
@@ -58,18 +82,46 @@
           <div class="col-12 col-md-6 pt-3 d-flex justify-content-center">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Sistólica</mat-label>
-              <input matInput placeholder="ingresa medida Sistólica" />
+              <input
+                onlyNumbers
+                formControlName="derSistolica"
+                matInput
+                placeholder="ingresa medida Sistólica"
+              />
+              <mat-error *ngIf="measuresForm.get('derSistolica')?.invalid"
+                >Campo obligatorio</mat-error
+              >
+              <mat-error
+                *ngIf="measuresForm.get('derSistolica')?.hasError('max')"
+                >ingresar solo 3 cifras</mat-error
+              >
             </mat-form-field>
           </div>
           <div class="col-12 col-md-6 pt-3 d-flex justify-content-center">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Diastólica</mat-label>
-              <input matInput placeholder="ingresa medida Diastólica" />
+              <input
+                onlyNumbers
+                formControlName="derDiastólica"
+                matInput
+                placeholder="ingresa medida Diastólica"
+              />
+              <mat-error *ngIf="measuresForm.get('derDiastólica')?.invalid"
+                >Campo obligatorio</mat-error
+              >
+              <mat-error
+                *ngIf="measuresForm.get('derDiastólica')?.hasError('max')"
+                >ingresar solo 3 cifras</mat-error
+              >
             </mat-form-field>
           </div>
         </div>
         <div class="d-grid gap-2 col-12 col-md-6 mx-auto">
-          <button type="submit" class="btn btn-success btn-block mt-3">
+          <button
+            [disabled]="measuresForm.invalid"
+            type="submit"
+            class="btn btn-success btn-block mt-3"
+          >
             Guardar
           </button>
         </div>

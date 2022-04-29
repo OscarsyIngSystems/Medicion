@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { DataDbService } from 'src/app/services/data-db.service';
 
 @Component({
@@ -24,18 +29,18 @@ export class MeasurementFormComponent implements OnInit {
     this.day.getFullYear();
 
   measuresForm!: FormGroup;
-  constructor(private dbData: DataDbService) {
-    this.measuresForm = this.createFormGrup();
+  constructor(private dbData: DataDbService, private fb: FormBuilder) {
+    this.measuresForm = this.fb.group({
+      dateNew: [this.day, [Validators.required]],
+      time: [this.time, [Validators.required]],
+      izqSistolica: ['', [Validators.required, Validators.max(999)]],
+      izqDiastólica: ['', [Validators.required, Validators.max(999)]],
+      derSistolica: ['', [Validators.required, Validators.max(999)]],
+      derDiastólica: ['', [Validators.required, Validators.max(999)]],
+    });
   }
 
   ngOnInit(): void {}
-
-  createFormGrup() {
-    return new FormGroup({
-      dateNew: new FormControl(this.day),
-      time: new FormControl(this.time),
-    });
-  }
 
   onResetForm() {
     this.measuresForm.reset();

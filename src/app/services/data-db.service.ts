@@ -17,4 +17,13 @@ export class DataDbService {
   saveMeasures(newMeasures: any) {
     this.measuresCollection.add(newMeasures);
   }
+
+  getData() {
+    return new Promise<any>((resolve) => {
+      this.afs
+        .collection('measures')
+        .valueChanges()
+        .subscribe((data) => resolve(data));
+    });
+  }
 }

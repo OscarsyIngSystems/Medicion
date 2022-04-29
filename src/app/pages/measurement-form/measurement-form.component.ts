@@ -8,17 +8,24 @@ import { DataDbService } from 'src/app/services/data-db.service';
   styleUrls: ['./measurement-form.component.css'],
 })
 export class MeasurementFormComponent implements OnInit {
-  hoy = new Date();
-  hora =
-    this.hoy.getHours() +
+  documents: any;
+  day = new Date();
+  time =
+    this.day.getHours() +
     ':' +
-    this.hoy.getMinutes() +
+    this.day.getMinutes() +
     ':' +
-    this.hoy.getSeconds();
-
+    this.day.getSeconds();
+  dateCurrent =
+    this.day.getDate() +
+    '-' +
+    (this.day.getMonth() + 1) +
+    '-' +
+    this.day.getFullYear();
   createFormGrup() {
     return new FormGroup({
-      dateNew: new FormControl(''),
+      dateNew: new FormControl(this.dateCurrent),
+      time: new FormControl(this.time),
     });
   }
 
@@ -27,10 +34,7 @@ export class MeasurementFormComponent implements OnInit {
     this.measuresForm = this.createFormGrup();
   }
 
-  ngOnInit(): void {
-    console.log(this.hora, 'hora');
-    console.log(this.hoy, 'hoy');
-  }
+  ngOnInit(): void {}
 
   onResetForm() {
     this.measuresForm.reset();
@@ -40,5 +44,10 @@ export class MeasurementFormComponent implements OnInit {
     console.log('guarde form', this.measuresForm.value);
 
     this.dbData.saveMeasures(this.measuresForm.value);
+  }
+
+  async getCollection() {
+    this.documents = await this.dbData.getData();
+    console.log(this.documents);
   }
 }

@@ -1,0 +1,24 @@
+.cardCustom {
+  width: 50%;
+  height: auto;
+  border-radius: 15px;
+  min-width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.containerCustom {
+  display: flex;
+  justify-content: center;
+  padding-top: 5%;
+}
+
+.shadowCustom {
+  background-color: rgba(247, 241, 45, 0.5);
+}
+
+@media screen and (max-width: 600px) {
+  .cardCustom {
+    min-width: 90%;
+  }
+}

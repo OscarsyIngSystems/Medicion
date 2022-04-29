@@ -1,8 +1,80 @@
 <div class="form-container">
-  <h1>Medir</h1>
-  <form [formGroup]="measuresForm" (ngSubmit)="onSaveForm()">
-    <input type="text" formControlName="dateNew" placeholder="Ingresa fecha" />
-    <button type="submit" class="btn btn-success">Guardar</button>
+  <form
+    class="containerCustom"
+    [formGroup]="measuresForm"
+    (ngSubmit)="onSaveForm()"
+    autocomplete="off"
+  >
+    <div class="card cardCustom">
+      <div class="card-header bold-text">Medición de presión arterial</div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center pt-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Ingresa fecha</mat-label>
+              <input
+                formControlName="dateNew"
+                matInput
+                [matDatepicker]="picker"
+              />
+
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row pt-3">
+          <div
+            class="col-4 offset-4 d-flex justify-content-center align-item-center shadowCustom"
+          >
+            <h4 class="bold-text p-0 m-0">Mano izquierda</h4>
+          </div>
+        </div>
+        <div class="row pt-3">
+          <div class="col-12 col-md-6 pt-3 d-flex justify-content-center">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Sistólica</mat-label>
+              <input matInput placeholder="ingresa medida Sistólica" />
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-md-6 pt-3 d-flex justify-content-center">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Diastólica</mat-label>
+              <input matInput placeholder="ingresa medida Diastólica" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row pt-3">
+          <div
+            class="col-4 offset-4 d-flex justify-content-center align-item-center shadowCustom"
+          >
+            <h4 class="bold-text p-0 m-0">Mano derecha</h4>
+          </div>
+        </div>
+        <div class="row pt-3">
+          <div class="col-12 col-md-6 pt-3 d-flex justify-content-center">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Sistólica</mat-label>
+              <input matInput placeholder="ingresa medida Sistólica" />
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-md-6 pt-3 d-flex justify-content-center">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Diastólica</mat-label>
+              <input matInput placeholder="ingresa medida Diastólica" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="d-grid gap-2 col-12 col-md-6 mx-auto">
+          <button type="submit" class="btn btn-success btn-block mt-3">
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
   </form>
-  <button (click)="getCollection()" class="btn btn-success">consultar</button>
+  <!-- <button (click)="getCollection()" class="btn btn-success">consultar</button> -->
 </div>

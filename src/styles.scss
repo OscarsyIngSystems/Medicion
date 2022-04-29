@@ -3,3 +3,10 @@
 .cursor-p{
   cursor: pointer;
 }
+
+.bold-text {
+  font-weight: bold !important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

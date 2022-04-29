@@ -22,12 +22,6 @@ export class MeasurementFormComponent implements OnInit {
     (this.day.getMonth() + 1) +
     '-' +
     this.day.getFullYear();
-  createFormGrup() {
-    return new FormGroup({
-      dateNew: new FormControl(this.dateCurrent),
-      time: new FormControl(this.time),
-    });
-  }
 
   measuresForm!: FormGroup;
   constructor(private dbData: DataDbService) {
@@ -35,6 +29,13 @@ export class MeasurementFormComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  createFormGrup() {
+    return new FormGroup({
+      dateNew: new FormControl(this.day),
+      time: new FormControl(this.time),
+    });
+  }
 
   onResetForm() {
     this.measuresForm.reset();

@@ -1,1 +1,7 @@
-<p>measurement-form works!</p>
+<div class="form-container">
+  <h1>Medir</h1>
+  <form [formGroup]="measuresForm" (ngSubmit)="onSaveForm()">
+    <input type="text" formControlName="dateNew" placeholder="Ingresa fecha" />
+    <button type="submit" class="btn btn-success">Guardar</button>
+  </form>
+</div>

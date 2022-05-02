@@ -57,15 +57,15 @@
               <mat-label>Diastólica</mat-label>
               <input
                 onlyNumbers
-                formControlName="izqDiastólica"
+                formControlName="izqDiastolica"
                 matInput
                 placeholder="ingresa medida Diastólica"
               />
-              <mat-error *ngIf="measuresForm.get('izqDiastólica')?.invalid"
+              <mat-error *ngIf="measuresForm.get('izqDiastolica')?.invalid"
                 >Campo obligatorio</mat-error
               >
               <mat-error
-                *ngIf="measuresForm.get('izqDiastólica')?.hasError('max')"
+                *ngIf="measuresForm.get('izqDiastolica')?.hasError('max')"
                 >ingresar solo 3 cifras</mat-error
               >
             </mat-form-field>
@@ -102,15 +102,15 @@
               <mat-label>Diastólica</mat-label>
               <input
                 onlyNumbers
-                formControlName="derDiastólica"
+                formControlName="derDiastolica"
                 matInput
                 placeholder="ingresa medida Diastólica"
               />
-              <mat-error *ngIf="measuresForm.get('derDiastólica')?.invalid"
+              <mat-error *ngIf="measuresForm.get('derDiastolica')?.invalid"
                 >Campo obligatorio</mat-error
               >
               <mat-error
-                *ngIf="measuresForm.get('derDiastólica')?.hasError('max')"
+                *ngIf="measuresForm.get('derDiastolica')?.hasError('max')"
                 >ingresar solo 3 cifras</mat-error
               >
             </mat-form-field>

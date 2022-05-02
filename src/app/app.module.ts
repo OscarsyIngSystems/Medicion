@@ -21,7 +21,7 @@ import { OnlyNumbersDirective } from './directives/only-numbers.directive';
 import { HistoryComponent } from './pages/history/history.component';
 import { GraphComponent } from './pages/graph/graph.component';
 import { Ng2IziToastModule } from 'ng2-izitoast';
-
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +45,7 @@ import { Ng2IziToastModule } from 'ng2-izitoast';
     MatIconModule,
     FormsModule,
     Ng2IziToastModule,
+    MatTableModule,
   ],
   providers: [DataDbService],
   bootstrap: [AppComponent],

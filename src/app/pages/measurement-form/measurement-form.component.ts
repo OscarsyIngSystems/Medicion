@@ -9,21 +9,6 @@ import { DataDbService } from 'src/app/services/data-db.service';
   styleUrls: ['./measurement-form.component.css'],
 })
 export class MeasurementFormComponent implements OnInit {
-  documents: any;
-  day = new Date();
-  time =
-    this.day.getHours() +
-    ':' +
-    this.day.getMinutes() +
-    ':' +
-    this.day.getSeconds();
-  dateCurrent =
-    this.day.getDate() +
-    '-' +
-    (this.day.getMonth() + 1) +
-    '-' +
-    this.day.getFullYear();
-
   measuresForm!: FormGroup;
 
   constructor(
@@ -42,12 +27,12 @@ export class MeasurementFormComponent implements OnInit {
 
   initForm() {
     this.measuresForm = this.fb.group({
-      dateNew: [this.day, [Validators.required]],
-      time: [this.time, [Validators.required]],
-      izqSistolica: ['', [Validators.required, Validators.max(999)]],
-      izqDiastólica: ['', [Validators.required, Validators.max(999)]],
-      derSistolica: ['', [Validators.required, Validators.max(999)]],
-      derDiastólica: ['', [Validators.required, Validators.max(999)]],
+      dateNew: [new Date(), [Validators.required]],
+      time: [new Date().toLocaleTimeString(), [Validators.required]],
+      izqSistolica: [' ', [Validators.required, Validators.max(999)]],
+      izqDiastolica: [' ', [Validators.required, Validators.max(999)]],
+      derSistolica: [' ', [Validators.required, Validators.max(999)]],
+      derDiastolica: [' ', [Validators.required, Validators.max(999)]],
     });
   }
 
@@ -56,17 +41,12 @@ export class MeasurementFormComponent implements OnInit {
 
     this.dbData.saveMeasures(this.measuresForm.value).then((response) => {
       if (response.id) {
-        this.iziToast.show({
-          title: 'Hey',
-          message: 'What would you like to add?',
+        this.iziToast.success({
+          title: 'Correcto!',
+          message: 'Registro guardado',
         });
         this.initForm();
       }
     });
-  }
-
-  async getCollection() {
-    this.documents = await this.dbData.getData();
-    console.log(this.documents);
   }
 }

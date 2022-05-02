@@ -22,6 +22,7 @@ import { HistoryComponent } from './pages/history/history.component';
 import { GraphComponent } from './pages/graph/graph.component';
 import { Ng2IziToastModule } from 'ng2-izitoast';
 import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +47,7 @@ import { MatTableModule } from '@angular/material/table';
     FormsModule,
     Ng2IziToastModule,
     MatTableModule,
+    MatSortModule,
   ],
   providers: [DataDbService],
   bootstrap: [AppComponent],

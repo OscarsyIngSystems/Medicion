@@ -21,10 +21,6 @@ export class MeasurementFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onResetForm() {
-    this.measuresForm.reset();
-  }
-
   initForm() {
     this.measuresForm = this.fb.group({
       dateNew: [new Date(), [Validators.required]],
@@ -45,6 +41,7 @@ export class MeasurementFormComponent implements OnInit {
           title: 'Correcto!',
           message: 'Registro guardado',
         });
+
         this.initForm();
       }
     });

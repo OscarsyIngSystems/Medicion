@@ -1,3 +1,37 @@
 table {
   width: 100%;
 }
+
+.card-table {
+  border-radius: 5px;
+  margin: 3%;
+  overflow-y: scroll;
+  height: 80%;
+
+  background-color: white;
+}
+
+/* Estilos para motores Webkit y blink */
+
+.card-table::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.card-table::-webkit-scrollbar:vertical {
+  width: 8px;
+}
+
+.card-table::-webkit-scrollbar-button:increment,
+.card-table::-webkit-scrollbar-button {
+  display: none;
+}
+
+.card-table::-webkit-scrollbar-thumb {
+  background-color: #d0d0ce;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.card-table::-webkit-scrollbar-track {
+  border-radius: 10px;
+}

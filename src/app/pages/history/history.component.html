@@ -1,55 +1,61 @@
-<table
-  matSort
-  mat-table
-  [dataSource]="dataSource"
-  (matSortChange)="announceSortChange($event)"
-  class="mat-elevation-z8"
->
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
+<div class="card-table">
+  <table
+    matSort
+    mat-table
+    [dataSource]="dataSource"
+    (matSortChange)="announceSortChange($event)"
+    class="mat-elevation-z8"
+  >
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
 
-  <!-- Fecha Column -->
-  <ng-container matColumnDef="dateNew">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</th>
-    <td mat-cell *matCellDef="let element">
-      {{ element.dateNew.seconds * 1000 | date: "dd/MM/yyyy" }}
-    </td>
-  </ng-container>
+    <!-- Fecha Column -->
+    <ng-container matColumnDef="dateNew">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.dateNew.seconds * 1000 | date: "dd/MM/yyyy" }}
+      </td>
+    </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="izqSistolica">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>
-      Sistólica izquierda
-    </th>
-    <td mat-cell *matCellDef="let element">{{ element.izqSistolica }}</td>
-  </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="izqSistolica">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Sistólica izquierda
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.izqSistolica }}</td>
+    </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="izqDiastolica">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>
-      Diastólica izquierda
-    </th>
-    <td mat-cell *matCellDef="let element">{{ element.izqDiastolica }}</td>
-  </ng-container>
+    <!-- Weight Column -->
+    <ng-container matColumnDef="izqDiastolica">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Diastólica izquierda
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.izqDiastolica }}</td>
+    </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="derSistolica">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Sistólica derecha</th>
-    <td mat-cell *matCellDef="let element">{{ element.derSistolica }}</td>
-  </ng-container>
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="derDiastolica">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>
-      Diastólica derecha
-    </th>
-    <td mat-cell *matCellDef="let element">{{ element.derDiastolica }}</td>
-  </ng-container>
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="time">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Hora</th>
-    <td mat-cell *matCellDef="let element">{{ element.time }}</td>
-  </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="derSistolica">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Sistólica derecha
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.derSistolica }}</td>
+    </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="derDiastolica">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Diastólica derecha
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.derDiastolica }}</td>
+    </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="time">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Hora</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.dateNew.seconds * 1000 | date: "h:mm a" }}
+      </td>
+    </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-</table>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

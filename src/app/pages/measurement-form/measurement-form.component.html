@@ -118,7 +118,10 @@
         </div>
         <div class="d-grid gap-2 col-12 col-md-6 mx-auto mt-5">
           <button
-            [disabled]="measuresForm.invalid"
+            [disabled]="
+              measuresForm.invalid ||
+              this.measuresForm.get('izqSistolica')?.value == ' '
+            "
             type="submit"
             class="btn btn-success btn-block"
           >
@@ -128,5 +131,4 @@
       </div>
     </div>
   </form>
-  <!-- <button (click)="getCollection()" class="btn btn-success">consultar</button> -->
 </div>

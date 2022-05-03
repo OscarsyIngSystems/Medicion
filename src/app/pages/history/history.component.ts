@@ -34,8 +34,9 @@ export class HistoryComponent implements OnInit {
   ngOnInit(): void {}
 
   async getCollection() {
-    this.documents = await this.dbData.getData();
-    this.dataSource.data = this.documents;
+    this.dbData.getDataOrderLimit(false).then((res) => {
+      this.dataSource.data = res;
+    });
   }
 
   announceSortChange(sortState: Sort) {

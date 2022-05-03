@@ -35,9 +35,15 @@ export class DataDbService {
         .subscribe((data) => resolve(data));
     });
   }
-  async getDataOrderLimit(limit: number): Promise<any[]> {
+  async getDataOrderLimit(limited: boolean, limit?: number): Promise<any[]> {
     const reference = collection(this.afs.firestore, 'measures');
-    const q = query(reference, orderBy('dateNew'), limitToLast(limit));
+    let q;
+    if (limited) {
+      let lim = limit ? limit : 0;
+      q = query(reference, orderBy('dateNew'), limitToLast(lim));
+    } else {
+      q = query(reference, orderBy('dateNew'));
+    }
     const querySnapshot = await getDocs(q);
 
     const result: any[] = [];

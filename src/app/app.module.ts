@@ -15,7 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { OnlyNumbersDirective } from './directives/only-numbers.directive';
 import { HistoryComponent } from './pages/history/history.component';
@@ -49,7 +49,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatSortModule,
   ],
-  providers: [DataDbService],
+  providers: [DataDbService, { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

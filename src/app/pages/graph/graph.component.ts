@@ -37,7 +37,7 @@ export class GraphComponent implements OnInit {
 
   async getCollection() {
     // this.info = await this.dbData.getData();
-    this.dbData.getDataOrderLimit(true, 10).then((res) => {
+    this.dbData.getDataOrderLimit(true, 7).then((res) => {
       console.log(res, 'res');
       this.info = res;
 

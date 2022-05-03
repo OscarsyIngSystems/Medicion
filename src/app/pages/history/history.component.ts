@@ -35,7 +35,6 @@ export class HistoryComponent implements OnInit {
 
   async getCollection() {
     this.documents = await this.dbData.getData();
-
     this.dataSource.data = this.documents;
   }
 

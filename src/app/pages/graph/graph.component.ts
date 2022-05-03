@@ -65,22 +65,22 @@ export class GraphComponent implements OnInit {
           {
             name: 'Sistólica izquierda',
             data: this.izqSistolica,
-            color: '#846b99',
+            color: '#FBF46D',
           },
           {
             name: 'Diastólica izquierda',
             data: this.izqDiastolica,
-            color: '#846b94',
+            color: '#B4FE98',
           },
           {
             name: 'Sistólica derecha',
             data: this.derSistolica,
-            color: '#98D3D3',
+            color: '#77E4D4',
           },
           {
             name: 'Distólica derecha',
             data: this.derDiastolica,
-            color: '#98D3DD',
+            color: '#998CEB',
           },
         ],
         chart: {

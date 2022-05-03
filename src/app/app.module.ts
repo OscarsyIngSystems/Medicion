@@ -23,6 +23,8 @@ import { GraphComponent } from './pages/graph/graph.component';
 import { Ng2IziToastModule } from 'ng2-izitoast';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,8 +50,13 @@ import { MatSortModule } from '@angular/material/sort';
     Ng2IziToastModule,
     MatTableModule,
     MatSortModule,
+    NgApexchartsModule,
   ],
-  providers: [DataDbService, { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
+  providers: [
+    DataDbService,
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
+    DatePipe,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
